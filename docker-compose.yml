@@ -1,6 +1,6 @@
 version: '2'
 services:
-  db:
+  postgres_db:
     image: postgres
   mongo_db:
     image: mongo
@@ -12,5 +12,5 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - postgres_db
       - mongo_db
