@@ -83,7 +83,7 @@ DATABASES = {
         'PORT': 5432
     },
     'events': {
-        'ENGINE': 'django_mongodb_engine',
+        'ENGINE': 'django.db.backends.dummy',
         'NAME': 'events'
     }
 }
@@ -126,3 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+from mongoengine import connect
+connect('employeedb', username='my_username', password='secret_password')
