@@ -2,12 +2,15 @@ version: '2'
 services:
   db:
     image: postgres
+  mongo_db:
+    image: mongo
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python blog/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
       - db
+      - mongo_db

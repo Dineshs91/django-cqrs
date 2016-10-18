@@ -81,6 +81,10 @@ DATABASES = {
         'USER': 'postgres',
         'HOST': 'db',
         'PORT': 5432
+    },
+    'events': {
+        'ENGINE': 'django_mongodb_engine',
+        'NAME': 'events'
     }
 }
 
