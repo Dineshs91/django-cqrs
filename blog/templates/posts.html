@@ -4,5 +4,14 @@
     </head>
     <body>
         <p>Welcome to the posts page. Provide your post.</p>
+        {% for post in posts %}
+            {{ post.title }} {{ post.content }} </br>
+        {% endfor %}
+
+        <form action="/posts/" method="post">
+            {% csrf_token %}
+            {{ post_form }}
+            <input type="submit" value="Submit" />
+        </form>
     </body>
 </html>
