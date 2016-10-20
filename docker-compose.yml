@@ -6,7 +6,6 @@ services:
     image: mongo
   web:
     build: .
-    command: python blog/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
@@ -14,3 +13,5 @@ services:
     depends_on:
       - postgres_db
       - mongo_db
+    entrypoint: /app/docker/web/entrypoint.sh
+    privileged: true
