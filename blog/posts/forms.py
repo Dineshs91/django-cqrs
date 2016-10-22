@@ -28,6 +28,6 @@ class PostForm(ModelForm):
             event_type=EventTypes.post_created_event,
             event_data=event_data
         )
-        event_handler = EventHandler(event)
+        event_handler = EventHandler([event])
 
         event_handler.process()
