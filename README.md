@@ -1,3 +1,15 @@
 # django-cqrs
 
 A demo application to show how cqrs can be implemented in Django
+
+### Bring up the services up.
+
+cd into the project root. (After cloning this repo)
+
+Bring up the services up.
+
+`docker-compose up -d --build`
+
+Shutdown the containers.
+
+`docker-compose down`
