@@ -133,4 +133,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 from mongoengine import connect
-connect('employeedb', username='my_username', password='secret_password')
+connect('event_db', host='mongo_db', port=27017)
