@@ -14,7 +14,7 @@ def _remove_application_state():
 def replay_all_events():
     _remove_application_state()
 
-    events = Event.objects.all().order_by('datetime')
+    events = Event.objects.all().order_by('event_time')
     event_handler = EventHandler(events)
     event_handler.process()
 
@@ -22,6 +22,6 @@ def replay_all_events():
 def replay_first_three_events():
     _remove_application_state()
 
-    events = Event.objects.all().order_by('datetime')[:3]
+    events = Event.objects.all().order_by('event_time')[:3]
     event_handler = EventHandler(events)
     event_handler.process()
