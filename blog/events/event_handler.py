@@ -18,5 +18,6 @@ class EventHandler:
             # Create the application state
             Post.objects.create(
                 title=event.event_data.title,
-                content=event.event_data.content
+                content=event.event_data.content,
+                datetime=event.event_time
             )
