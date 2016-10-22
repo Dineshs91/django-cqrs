@@ -13,3 +13,6 @@ Bring up the services up.
 Shutdown the containers.
 
 `docker-compose down`
+
+**NOTE:**
+For additional docker commands refer [this](https://github.com/Dineshs91/init/blob/master/docker/README.md)
