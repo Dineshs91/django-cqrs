@@ -5,7 +5,7 @@
     <body>
         <p>Welcome to the posts page. Provide your post.</p>
         {% for post in posts %}
-            {{ post.title }} {{ post.content }} {{ post.created_at }} </br>
+            {{ post.title }} {{ post.content }} {{ post.datetime }} </br>
         {% endfor %}
 
         <form action="/posts/" method="post">
