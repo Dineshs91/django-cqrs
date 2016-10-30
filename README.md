@@ -2,7 +2,7 @@
 
 A demo application to show how cqrs can be implemented in Django
 
-## Bring up the services up.
+## Bring up the services.
 
 cd into the project root. (After cloning this repo)
 
