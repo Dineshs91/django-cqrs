@@ -20,8 +20,24 @@ def replay_all_events():
 
 
 def replay_first_three_events():
-    _remove_application_state()
+    from pycallgraph import PyCallGraph
+    from pycallgraph import Config
+    from pycallgraph import GlobbingFilter
+    from pycallgraph.output import GraphvizOutput
 
-    events = Event.objects.all().order_by('event_time')[:3]
-    event_handler = EventHandler(events)
-    event_handler.process()
+    config = Config()
+    config.trace_filter = GlobbingFilter(exclude=[
+        'django.*',
+        'mongoengine.*',
+        'pymongo.*'
+    ])
+
+    graphviz_output = GraphvizOutput()
+    graphviz_output.output_file = 'replay_three_events.png'
+
+    with PyCallGraph(config=config, output=graphviz_output):
+        _remove_application_state()
+
+        events = Event.objects.all().order_by('event_time')[:3]
+        event_handler = EventHandler(events)
+        event_handler.process()
