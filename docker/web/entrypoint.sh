@@ -9,4 +9,7 @@ done
 
 # Run python migrations
 python blog/manage.py migrate
-python blog/manage.py runserver 0.0.0.0:8000
+# python blog/manage.py runserver 0.0.0.0:8000
+
+cd blog
+pycallgraph -v --stdlib --exclude "django.*.*" graphviz -- ./manage.py runserver 0.0.0.0:8000

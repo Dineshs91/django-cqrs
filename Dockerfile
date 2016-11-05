@@ -5,6 +5,7 @@ RUN apt-get install -y git
 RUN apt-get install -y python3 python-pip python3-dev libpq-dev postgresql-client
 RUN apt-get install -y libssl-dev
 RUN apt-get install build-essential
+RUN apt-get update && apt-get install -y graphviz
 
 ADD ./ /app/
 
