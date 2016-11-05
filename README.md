@@ -19,9 +19,9 @@ For docker commands refer [this](https://github.com/Dineshs91/init/blob/master/d
 
 ## Test events replay
 
-`docker exec -it 9a599402487f blog/demo/replay_three.sh`
+`docker exec -it cqrs_web_1 blog/demo/replay_three.sh`
 
-`docker exec -it 9a599402487f blog/demo/replay_all.sh`
+`docker exec -it cqrs_web_1 blog/demo/replay_all.sh`
 
 ## Architecture
 
