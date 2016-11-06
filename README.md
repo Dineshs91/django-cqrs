@@ -10,6 +10,8 @@ Bring up the services up.
 
 `docker-compose up -d --build`
 
+Visit `http://localhost:8000/posts/`
+
 Shutdown the containers.
 
 `docker-compose down`
