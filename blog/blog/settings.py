@@ -133,5 +133,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 from mongoengine import connect
 connect('event_db', host='mongo_db', port=27017)
