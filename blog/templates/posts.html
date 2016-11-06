@@ -14,7 +14,7 @@
     </head>
     <body>
         <p class="center red lighten-2">Welcome to the posts page.</p>
-        <div class="container" style="width:80%;">
+        <div class="container">
 
             <div class="row">
 
@@ -32,11 +32,11 @@
 
               <div class="col s12 m8 l6"> <!-- Note that "m8 l9" was added -->
                 <ul class="collection with-header">
-                    <li class="collection-header orange accent-2"><h4>Posts</h4></li>
+                    <li class="collection-header orange accent-2"><h5>Posts</h5></li>
 
                 {% for post in posts %}
                     <li class="collection-item avatar">
-                        <h4 class="title"><b>{{ post.title }}</b></h4>
+                        <h5 class="title"><b>{{ post.title }}</b></h5>
                         <p>
                             {{ post.content }}</br>
                             {{ post.datetime }}
