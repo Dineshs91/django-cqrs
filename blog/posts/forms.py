@@ -14,6 +14,11 @@ class PostForm(ModelForm):
         model = Post
         fields = ['title', 'content']
 
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({'class': 'input-field'})
+        self.fields['content'].widget.attrs.update({'class': 'materialize-textarea'})
+
     def save(self, commit=True):
         # This is where the write model separates.
         # Use event handler.
