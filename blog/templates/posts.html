@@ -13,7 +13,7 @@
         <script src="{% static 'js/posts.js' %}"></script>
     </head>
     <body>
-        <p class="center red lighten-2">Welcome to the posts page.</p>
+
         <div class="container">
 
             <div class="row">
@@ -41,7 +41,7 @@
                             {{ post.content }}</br>
                             {{ post.datetime }}
                         </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+                        <a href="#modal1" class="secondary-content"><i class="material-icons">edit</i></a>
                     </li>
                 {% endfor %}
 
@@ -51,5 +51,21 @@
 
             </div>
         </div>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <form action="/posts/" method="post">
+              <h5>Update post</h5>
+                {% csrf_token %}
+                {{ post_form }}
+                <input type="hidden"/>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Update</a>
+        </div>
+      </div>
+
     </body>
 </html>

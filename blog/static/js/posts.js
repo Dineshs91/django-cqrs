@@ -1,4 +1,7 @@
 $(function() {
+    // Initialize modal
+    $('#modal1').modal();
+
     $('form').submit(function(e) {
         e.preventDefault();
 
