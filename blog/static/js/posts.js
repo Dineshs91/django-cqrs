@@ -27,7 +27,7 @@ $(function() {
 
         var action = $(this).attr('action') + post_id + '/';
         var data = $(this).serialize();
-        $.ajax({url: action, type: 'PUT', data: data, success: function(res) {
+        $.ajax({url: action, type: 'POST', data: data, success: function(res) {
             // Iterate through the entire list and find the element
             // Whose element's data matches with the data value.
             $('.collection-item').each(function() {

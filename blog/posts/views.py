@@ -1,6 +1,4 @@
 from django.views import View
-from django.http import HttpResponse
-from django.template import RequestContext
 from django.shortcuts import render
 
 from posts.models import Post
@@ -32,3 +30,22 @@ class PostView(View):
         post_form = PostForm()
         context_dict['post_form'] = post_form
         return render(request, 'posts.html', context_dict)
+
+
+class EditPostView(View):
+    def post(self, request, id):
+        post_form = PostForm(request.POST)
+
+        if post_form.is_valid():
+            title = post_form.cleaned_data['title']
+            content = post_form.cleaned_data['content']
+        post = Post.objects.get(id=id)
+        post.title = title
+        post.content = content
+        post.save()
+
+        context = {
+            'post': post
+        }
+
+        return render(request, 'list.html', context)

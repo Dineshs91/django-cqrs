@@ -52,12 +52,12 @@
       <!-- Modal Structure -->
       <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <form class="update_post" action="/posts/" method="post">
+          <form class="update_post" action="/posts/edit/" method="post">
               <h5>Update post</h5>
                 {% csrf_token %}
                 {{ post_form }}
                 <input id="post_id" type="hidden"/>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Update
+                <button class="modal-action modal-close btn waves-effect waves-light" type="submit" name="action">Update
                     <i class="material-icons right">send</i>
                 </button>
             </form>
