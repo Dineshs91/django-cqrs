@@ -27,12 +27,22 @@ class PostForm(ModelForm):
             content=self.cleaned_data['content']
         )
 
-        event = Event(
-            event_id=uuid.uuid4(),
-            event_time=datetime.datetime.now(),
-            event_type=EventTypes.post_created_event,
-            event_data=event_data
-        )
+        if self.instance.title:
+            # this is an update
+            event = Event(
+                event_id=uuid.uuid4(),
+                event_time=datetime.datetime.now(),
+                event_type=EventTypes.post_updated_event,
+                event_data=event_data,
+                post_id=self.instance.id
+            )
+        else:
+            event = Event(
+                event_id=uuid.uuid4(),
+                event_time=datetime.datetime.now(),
+                event_type=EventTypes.post_created_event,
+                event_data=event_data
+            )
         event_handler = EventHandler([event])
 
         event_handler.process()

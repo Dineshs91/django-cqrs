@@ -34,15 +34,11 @@ class PostView(View):
 
 class EditPostView(View):
     def post(self, request, id):
-        post_form = PostForm(request.POST)
+        post = Post.objects.get(id=id)
+        post_form = PostForm(request.POST, instance=post)
 
         if post_form.is_valid():
-            title = post_form.cleaned_data['title']
-            content = post_form.cleaned_data['content']
-        post = Post.objects.get(id=id)
-        post.title = title
-        post.content = content
-        post.save()
+            post_form.save()
 
         context = {
             'post': post
