@@ -27,7 +27,7 @@ class PostForm(ModelForm):
             content=self.cleaned_data['content']
         )
 
-        if self.instance.title:
+        if self.instance.pk:
             # this is an update
             event = Event(
                 event_id=uuid.uuid4(),
