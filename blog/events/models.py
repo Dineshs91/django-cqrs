@@ -13,6 +13,7 @@ class Event(Document):
     event_time = DateTimeField(required=True)
     event_type = StringField(required=True)
     event_data = EmbeddedDocumentField(EventData)
+    post_id = IntField()
 
     def update(self):
         # Don't allow updates. Events should be immutable.
