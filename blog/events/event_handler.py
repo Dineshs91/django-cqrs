@@ -12,13 +12,14 @@ class EventHandler:
         # Update the application state.
         # This should be a transaction.
 
-        for event in self.events.order_by('event_time'):
+        for event in self.events:
             # Event store update.
             event.save()
 
             if event.event_type == EventTypes.post_created_event:
                 # Create the application state
                 Post.objects.create(
+                    id=event.post_id,
                     title=event.event_data.title,
                     content=event.event_data.content,
                     datetime=event.event_time

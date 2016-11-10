@@ -22,7 +22,7 @@ class PostView(View):
 
         post_form = PostForm(request.POST)
         if post_form.is_valid():
-            post_form.save()
+            post_form.save(action="create")
 
         posts = Post.objects.all().order_by('created_at')
         context_dict['posts'] = posts
@@ -38,7 +38,7 @@ class EditPostView(View):
         post_form = PostForm(request.POST, instance=post)
 
         if post_form.is_valid():
-            post_form.save()
+            post_form.save(action="update")
 
         context = {
             'post': post

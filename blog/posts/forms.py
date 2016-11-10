@@ -19,7 +19,7 @@ class PostForm(ModelForm):
         self.fields['title'].widget.attrs.update({'class': 'input-field'})
         self.fields['content'].widget.attrs.update({'class': 'materialize-textarea'})
 
-    def save(self, commit=True):
+    def save(self, commit=True, action=None):
         # This is where the write model separates.
         # Use event handler.
         event_data = EventData(
@@ -27,7 +27,7 @@ class PostForm(ModelForm):
             content=self.cleaned_data['content']
         )
 
-        if self.instance.pk:
+        if action == 'update':
             # this is an update
             event = Event(
                 event_id=uuid.uuid4(),
@@ -41,7 +41,8 @@ class PostForm(ModelForm):
                 event_id=uuid.uuid4(),
                 event_time=datetime.datetime.now(),
                 event_type=EventTypes.post_created_event,
-                event_data=event_data
+                event_data=event_data,
+                post_id=uuid.uuid4()
             )
         event_handler = EventHandler([event])
 
