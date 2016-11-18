@@ -27,9 +27,18 @@ For docker commands refer [this](https://github.com/Dineshs91/init/blob/master/d
 
 ## Architecture
 
-Currently there is only one event `PostCreatedEvent`.
+Currently there are only two event `PostCreatedEvent` and `PostUpdatedEvent`.
 
 I tried to replicate the concepts from this [video](https://www.youtube.com/watch?v=A0goyZ9F4bg&t=2160s)
 I did not implement the `command` part. 
 
+There are 2 things, event data and entity data. Any state change to the application is captured through an event
+`(PostCreatedEvent, PostUpdatedEvent)`. For storing event data I've used MongoDB and for entity data PostgresDB.
+
+Creation of event data is handled in django forms. Forms `save` is overloaded with the [code](https://github.com/Dineshs91/django-cqrs/blob/master/blog/posts/forms.py) which creates the events and makes a call
+to event handler. Event handler creates the application in turn which is stored in postgres. 
+
+So all the writes go through `Events` and `EventHandler` and reads happen on the entity data which is stored in postgres.
+
 If anybody wants to help out or interested about this, please open a PR or start a discussion in the issues section.
+
