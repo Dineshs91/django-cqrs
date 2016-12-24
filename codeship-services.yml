@@ -1,0 +1,11 @@
+web:
+  build:
+    image: cqrs-web
+    dockerfile_path: Dockerfile
+  links:
+    - mongo_db
+    - postgres_db
+mongo_db:
+  image: mongo
+postgres_db:
+   image: postgres
