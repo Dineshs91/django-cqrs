@@ -1,0 +1,8 @@
+- type: serial
+  encrypted_dockercfg_path: dockercfg.encrypted
+  services:
+  - postgres_db
+  - mongo_db
+  - web
+  steps:
+  - command: blog/demo/replay_three.sh
