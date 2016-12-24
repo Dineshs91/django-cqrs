@@ -1,6 +1,2 @@
-- service: postgres_db
-  command: echo one
-- service: mongo_db
-  command: echo two
 - service: web
   command: blog/demo/replay_three.sh
