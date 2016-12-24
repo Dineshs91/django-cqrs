@@ -1,5 +1,12 @@
-- type: serial
-  services:
-  - web
+- type: parallel
   steps:
-  - command: blog/demo/replay_three.sh
+  - type: serial
+    steps:
+      - service: postgres_db
+  - type: serial
+    steps:
+      - service: mongo_db
+  - type: serial
+    steps:
+      - service: web
+        command: blog/demo/replay_three.sh
