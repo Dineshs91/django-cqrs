@@ -1,5 +1,4 @@
 - type: serial
-  encrypted_dockercfg_path: dockercfg.encrypted
   services:
   - postgres_db
   - mongo_db
