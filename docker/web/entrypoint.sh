@@ -14,4 +14,4 @@ python blog/manage.py migrate
 
 sh blog/demo/replay_three.sh
 
-python blog/manage.py runserver 0.0.0.0:8000
+# python blog/manage.py runserver 0.0.0.0:8000
