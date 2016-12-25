@@ -1,2 +1,2 @@
 - service: web
-  command: echo "Hell"
+  command: sh /app/dockerify/uwsgi/entrypoint.sh
