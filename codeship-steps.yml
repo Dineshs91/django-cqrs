@@ -1,2 +1,2 @@
 - service: web
-  command: blog/demo/replay_three.sh
+  command: sh blog/demo/replay_three.sh
