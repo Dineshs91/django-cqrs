@@ -10,7 +10,7 @@ done
 # echo "Hello"
 
 # Run python migrations
-python blog/manage.py migrate
+# python blog/manage.py migrate
 
 # sh blog/demo/replay_three.sh
 
