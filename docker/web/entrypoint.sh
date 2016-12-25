@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Before postgres check'
+echo "Before postgres check"
 
 until psql -h "postgres_db" -U "postgres" -c '\l'; do
   >&2 echo "Postgres is unavailable - sleeping"
