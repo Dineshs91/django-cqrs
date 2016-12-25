@@ -1,2 +1,2 @@
 - service: web
-  command: sh /app/docker/web/entrypoint.sh
+  command: echo "Hell"
