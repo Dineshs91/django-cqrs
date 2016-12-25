@@ -7,7 +7,6 @@ web:
   links:
     - mongo_db
     - postgres_db
-  entrypoint: /app/docker/web/entrypoint.sh
 mongo_db:
   image: mongo
 postgres_db:
