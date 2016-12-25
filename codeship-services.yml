@@ -2,9 +2,12 @@ web:
   build:
     image: cqrs-web
     dockerfile_path: Dockerfile
+  volumes:
+    - .:/app
   links:
     - mongo_db
     - postgres_db
+  entrypoint: /app/docker/web/entrypoint.sh
 mongo_db:
   image: mongo
 postgres_db:
