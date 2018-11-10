@@ -36,7 +36,7 @@ There are 2 things, event data and entity data. Any state change to the applicat
 `(PostCreatedEvent, PostUpdatedEvent)`. For storing event data I've used MongoDB and for entity data PostgresDB.
 
 Creation of event data is handled in django forms. Forms `save` is overloaded with the [code](https://github.com/Dineshs91/django-cqrs/blob/master/blog/posts/forms.py) which creates the events and makes a call
-to event handler. Event handler creates the application in turn which is stored in postgres. 
+to event handler. Event handler creates the application state in turn which is stored in postgres. 
 
 So all the writes go through `Events` and `EventHandler` and reads happen on the entity data which is stored in postgres.
 
